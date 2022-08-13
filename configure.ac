@@ -15,6 +15,7 @@ AM_MAINTAINER_MODE
 MATE_COMPILE_WARNINGS
 
 AC_PROG_CC
+AC_PROG_SED
 LT_INIT
 
 dnl ==========================================================================

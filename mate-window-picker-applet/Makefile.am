@@ -23,16 +23,16 @@ mate_window_picker_applet_SOURCES = \
 	task-list.c \
 	task-list.h \
 	task-title.c \
-	task-title.h 
+	task-title.h
 
 appletdir       = $(datadir)/mate-panel/applets
 applet_in_files = org.mate.panel.MateWindowPicker.mate-panel-applet.desktop.in
 applet_DATA     = $(applet_in_files:.mate-panel-applet.desktop.in=.mate-panel-applet)
 
 $(applet_in_files): $(applet_in_files).in Makefile
-	$(AM_V_GEN)sed \
-	-e "s|\@LOCATION\@|$(APPLET_LOCATION)|" \
-	$< > $@
+	$(AM_V_GEN)$(SED) \
+		-e "s|\@LOCATION\@|$(APPLET_LOCATION)|" \
+		$< > $@
 
 $(applet_DATA): $(applet_in_files) Makefile
 	$(AM_V_GEN) $(MSGFMT) --desktop --keyword=Name --keyword=Description --template $< -d $(top_srcdir)/po -o $@
