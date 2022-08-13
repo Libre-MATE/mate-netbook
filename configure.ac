@@ -15,7 +15,6 @@ AM_MAINTAINER_MODE
 MATE_COMPILE_WARNINGS
 
 AC_PROG_CC
-AC_STDC_HEADERS
 AC_PROG_LIBTOOL
 
 dnl ==========================================================================
