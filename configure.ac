@@ -1,9 +1,9 @@
-AC_PREREQ(2.60)
 AC_INIT([mate-netbook],
         [1.26.0],
         [https://github.com/Libre-MATE/mate-netbook/issues],
         [mate-netbook],
         [https://github.com/Libre-MATE/mate-netbook/])
+AC_PREREQ(2.60)
 
 AM_INIT_AUTOMAKE([1.9 foreign tar-ustar no-dist-gzip dist-xz check-news])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
