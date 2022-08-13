@@ -9,7 +9,7 @@ AM_INIT_AUTOMAKE([1.9 foreign tar-ustar no-dist-gzip dist-xz check-news])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 AC_CONFIG_SRCDIR(maximus/main.c)
 AC_CONFIG_MACRO_DIR([m4])
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADERS([config.h])
 AM_MAINTAINER_MODE
 
 MATE_COMPILE_WARNINGS
