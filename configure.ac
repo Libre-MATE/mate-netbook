@@ -1,4 +1,4 @@
-AC_PREREQ(2.53)
+AC_PREREQ(2.60)
 AC_INIT([mate-netbook],
         [1.26.0],
         [https://github.com/Libre-MATE/mate-netbook/issues],
@@ -15,7 +15,7 @@ AM_MAINTAINER_MODE
 MATE_COMPILE_WARNINGS
 
 AC_PROG_CC
-AC_PROG_LIBTOOL
+LT_INIT
 
 dnl ==========================================================================
 dnl i18n
