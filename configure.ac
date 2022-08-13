@@ -4,7 +4,7 @@ AC_INIT([mate-netbook],
         [mate-netbook],
         [https://github.com/Libre-MATE/mate-netbook/])
 AC_PREREQ(2.60)
-
+AC_COPYRIGHT([Copyright (C) 2022 Libre MATE])
 AM_INIT_AUTOMAKE([1.9 foreign tar-ustar no-dist-gzip dist-xz check-news])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 AC_CONFIG_SRCDIR(maximus/main.c)
