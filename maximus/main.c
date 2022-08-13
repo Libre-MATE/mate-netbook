@@ -18,85 +18,68 @@
  *
  */
 
-#include <glib.h>
-
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-#include <gtk/gtk.h>
 #include <gdk/gdkx.h>
-
 #include <gio/gio.h>
+#include <glib.h>
+#include <gtk/gtk.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "maximus-app.h"
 
 #ifdef __GNUC__
-#define UNUSED_VARIABLE __attribute__ ((unused))
+#define UNUSED_VARIABLE __attribute__((unused))
 #else
 #define UNUSED_VARIABLE
 #endif
 
-static gboolean version    = FALSE;
+static gboolean version = FALSE;
 gboolean no_maximize = FALSE;
 
-GOptionEntry entries[] =
-{
- {
-   "version", 'v',
-   0, G_OPTION_ARG_NONE,
-   &version,
-   "Prints the version number", NULL
- },
- {
-   "no-maximize", 'm',
-   0, G_OPTION_ARG_NONE,
-   &no_maximize,
-   "Do not automatically maximize every window", NULL
- },
- {
-   NULL
- }
-};
+GOptionEntry entries[] = {
+    {"version", 'v', 0, G_OPTION_ARG_NONE, &version,
+     "Prints the version number", NULL},
+    {"no-maximize", 'm', 0, G_OPTION_ARG_NONE, &no_maximize,
+     "Do not automatically maximize every window", NULL},
+    {NULL}};
 
-gint main (gint argc, gchar *argv[])
-{
+gint main(gint argc, gchar *argv[]) {
   GApplication *application;
   MaximusApp UNUSED_VARIABLE *app;
-  GOptionContext  *context;
+  GOptionContext *context;
   GError *error = NULL;
   GdkDisplay *gdk_display;
 
-  g_set_application_name ("Maximus");
+  g_set_application_name("Maximus");
 
-  gtk_init (&argc, &argv);
+  gtk_init(&argc, &argv);
 
-  application = g_application_new ("com.canonical.Maximus", G_APPLICATION_FLAGS_NONE);
+  application =
+      g_application_new("com.canonical.Maximus", G_APPLICATION_FLAGS_NONE);
 
-  if (!g_application_register (application, NULL, &error))
-  {
-    g_warning ("%s", error->message);
-    g_error_free (error);
+  if (!g_application_register(application, NULL, &error)) {
+    g_warning("%s", error->message);
+    g_error_free(error);
     return 1;
   }
 
-  if (g_application_get_is_remote(application))
-  {
+  if (g_application_get_is_remote(application)) {
     return 0;
   }
 
-  context = g_option_context_new ("- Maximus");
-  g_option_context_add_main_entries (context, entries, "maximus");
-  g_option_context_add_group (context, gtk_get_option_group (TRUE));
-  g_option_context_parse (context, &argc, &argv, NULL);
+  context = g_option_context_new("- Maximus");
+  g_option_context_add_main_entries(context, entries, "maximus");
+  g_option_context_add_group(context, gtk_get_option_group(TRUE));
+  g_option_context_parse(context, &argc, &argv, NULL);
   g_option_context_free(context);
 
-  gdk_display = gdk_display_get_default ();
-  gdk_x11_display_error_trap_push (gdk_display);
-  app = maximus_app_get_default ();
-  gdk_x11_display_error_trap_pop_ignored (gdk_display);
+  gdk_display = gdk_display_get_default();
+  gdk_x11_display_error_trap_push(gdk_display);
+  app = maximus_app_get_default();
+  gdk_x11_display_error_trap_pop_ignored(gdk_display);
 
-  gtk_main ();
+  gtk_main();
 
   return EXIT_SUCCESS;
 }

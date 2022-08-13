@@ -3,7 +3,7 @@
  * Copyright (C) 2012-2021 MATE Developers
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 3 as 
+ * it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
  * This program is distributed in the hope that it will be useful,
@@ -24,42 +24,39 @@
 #include <glib-object.h>
 #include <gtk/gtk.h>
 
-#define MAXIMUS_TYPE_BIND (maximus_bind_get_type ())
+#define MAXIMUS_TYPE_BIND (maximus_bind_get_type())
 
-#define MAXIMUS_BIND(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj),\
-	MAXIMUS_TYPE_BIND, MaximusBind))
+#define MAXIMUS_BIND(obj) \
+  (G_TYPE_CHECK_INSTANCE_CAST((obj), MAXIMUS_TYPE_BIND, MaximusBind))
 
-#define MAXIMUS_BIND_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass),\
-	MAXIMUS_TYPE_BIND, MaximusBindClass))
+#define MAXIMUS_BIND_CLASS(klass) \
+  (G_TYPE_CHECK_CLASS_CAST((klass), MAXIMUS_TYPE_BIND, MaximusBindClass))
 
-#define MAXIMUS_IS_BIND(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj),\
-	MAXIMUS_TYPE_BIND))
+#define MAXIMUS_IS_BIND(obj) \
+  (G_TYPE_CHECK_INSTANCE_TYPE((obj), MAXIMUS_TYPE_BIND))
 
-#define MAXIMUS_IS_BIND_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass),\
-	MAXIMUS_TYPE_BIND))
+#define MAXIMUS_IS_BIND_CLASS(klass) \
+  (G_TYPE_CHECK_CLASS_TYPE((klass), MAXIMUS_TYPE_BIND))
 
-#define MAXIMUS_BIND_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj),\
-	MAXIMUS_TYPE_BIND, MaximusBindClass))
+#define MAXIMUS_BIND_GET_CLASS(obj) \
+  (G_TYPE_INSTANCE_GET_CLASS((obj), MAXIMUS_TYPE_BIND, MaximusBindClass))
 
-typedef struct _MaximusBind        MaximusBind;
-typedef struct _MaximusBindClass   MaximusBindClass;
+typedef struct _MaximusBind MaximusBind;
+typedef struct _MaximusBindClass MaximusBindClass;
 typedef struct _MaximusBindPrivate MaximusBindPrivate;
- 
-struct _MaximusBind
-{
-  GObject        parent;	
+
+struct _MaximusBind {
+  GObject parent;
 
   MaximusBindPrivate *priv;
 };
 
-struct _MaximusBindClass
-{
-  GObjectClass   parent_class;
+struct _MaximusBindClass {
+  GObjectClass parent_class;
 };
 
-GType maximus_bind_get_type (void) G_GNUC_CONST;
+GType maximus_bind_get_type(void) G_GNUC_CONST;
 
-MaximusBind * maximus_bind_get_default (void);
+MaximusBind *maximus_bind_get_default(void);
 
 #endif /* _MAXIMUS_BIND_H_ */
-

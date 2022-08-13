@@ -3,7 +3,7 @@
  * Copyright (C) 2012-2021 MATE Developers
  *
  * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License version 3 as 
+ * it under the terms of the GNU General Public License version 3 as
  * published by the Free Software Foundation.
  *
  * This program is distributed in the hope that it will be useful,
@@ -24,48 +24,44 @@
 #include <glib.h>
 #include <gtk/gtk.h>
 
-#define TASK_TYPE_LIST (task_list_get_type ())
+#define TASK_TYPE_LIST (task_list_get_type())
 
-#define TASK_LIST(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj),\
-	TASK_TYPE_LIST, TaskList))
+#define TASK_LIST(obj) \
+  (G_TYPE_CHECK_INSTANCE_CAST((obj), TASK_TYPE_LIST, TaskList))
 
-#define TASK_LIST_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass),\
-	TASK_TYPE_LIST, TaskListClass))
+#define TASK_LIST_CLASS(klass) \
+  (G_TYPE_CHECK_CLASS_CAST((klass), TASK_TYPE_LIST, TaskListClass))
 
-#define TASK_IS_LIST(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj),\
-	TASK_TYPE_LIST))
+#define TASK_IS_LIST(obj) (G_TYPE_CHECK_INSTANCE_TYPE((obj), TASK_TYPE_LIST))
 
-#define TASK_IS_LIST_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass),\
-	TASK_TYPE_LIST))
+#define TASK_IS_LIST_CLASS(klass) \
+  (G_TYPE_CHECK_CLASS_TYPE((klass), TASK_TYPE_LIST))
 
-#define TASK_LIST_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj),\
-	TASK_TYPE_LIST, TaskListClass))
+#define TASK_LIST_GET_CLASS(obj) \
+  (G_TYPE_INSTANCE_GET_CLASS((obj), TASK_TYPE_LIST, TaskListClass))
 
-typedef struct _TaskList        TaskList;
-typedef struct _TaskListClass   TaskListClass;
+typedef struct _TaskList TaskList;
+typedef struct _TaskListClass TaskListClass;
 typedef struct _TaskListPrivate TaskListPrivate;
- 
-struct _TaskList
-{
-  GtkBox        parent;
+
+struct _TaskList {
+  GtkBox parent;
 
   TaskListPrivate *priv;
 };
 
-struct _TaskListClass
-{
-  GtkBoxClass   parent_class;
+struct _TaskListClass {
+  GtkBoxClass parent_class;
 };
 
-GType task_list_get_type (void) G_GNUC_CONST;
+GType task_list_get_type(void) G_GNUC_CONST;
 
-GtkWidget * task_list_new (void);
+GtkWidget *task_list_new(void);
 
-GtkWidget * task_list_get_default (void);
+GtkWidget *task_list_get_default(void);
 
-gboolean    task_list_get_desktop_visible (TaskList *list);
+gboolean task_list_get_desktop_visible(TaskList *list);
 
-gboolean    task_list_get_show_all_windows (TaskList *list);
+gboolean task_list_get_show_all_windows(TaskList *list);
 
 #endif /* _TASK_LIST_H_ */
-

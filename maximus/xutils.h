@@ -25,24 +25,19 @@
 #ifndef WNCK_XUTILS_H
 #define WNCK_XUTILS_H
 
-#include <glib.h>
-#include <X11/Xlib.h>
 #include <X11/Xatom.h>
+#include <X11/Xlib.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
+#include <glib.h>
 
 G_BEGIN_DECLS
 
-void
-_wnck_error_trap_push (void);
+void _wnck_error_trap_push(void);
 
-int
-_wnck_error_trap_pop (void);
+int _wnck_error_trap_pop(void);
 
-void
-_wnck_get_wmclass (Window xwindow,
-                   char **res_class,
-                   char **res_name);
+void _wnck_get_wmclass(Window xwindow, char **res_class, char **res_name);
 
 G_END_DECLS
 
