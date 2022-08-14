@@ -44,3 +44,5 @@ man_MANS = mate-maximus.1
 CLEANFILES = $(gsettings_SCHEMAS) *.gschema.valid
 
 EXTRA_DIST =  $(gsettingsschema_in_files) $(man_MANS)
+
+-include $(top_srcdir)/git.mk

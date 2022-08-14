@@ -71,3 +71,4 @@ CLEANFILES = \
 	*.gschema.valid \
 	$(service_DATA)
 
+-include $(top_srcdir)/git.mk
