@@ -21,8 +21,7 @@ AC_INIT([mate-netbook],
         [https://github.com/Libre-MATE/mate-netbook/])
 AC_PREREQ(2.60)
 AC_COPYRIGHT([Copyright (C) 2022 Libre MATE])
-AM_INIT_AUTOMAKE([1.9 foreign tar-ustar no-dist-gzip dist-xz check-news])
-m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
+AM_INIT_AUTOMAKE([1.11 foreign tar-ustar no-dist-gzip dist-xz silent-rules check-news])
 AC_CONFIG_SRCDIR(maximus/main.c)
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
@@ -45,19 +44,15 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_SUBST([CONFIG_STATUS_DEPENDENCIES],['$(top_srcdir)/po/LINGUAS'])
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Define to the Gettext package name])
 
-#if test "x$GCC" = "xyes"; then
-#        GCC_FLAGS="-g -Wall -Werror"
-#fi
-
 AC_SUBST(GCC_FLAGS)
 
 GLIB_REQUIRED=2.50.0
 GTK_REQUIRED=3.22.0
 
-PKG_CHECK_MODULES(MAXIMUS_DEPS, 
+PKG_CHECK_MODULES(MAXIMUS_DEPS,
                   gtk+-3.0 >= $GTK_REQUIRED
                   glib-2.0 >= $GLIB_REQUIRED
-                  gio-2.0 
+                  gio-2.0
                   libwnck-3.0
                   xtst
                   libfakekey
@@ -65,11 +60,11 @@ PKG_CHECK_MODULES(MAXIMUS_DEPS,
 AC_SUBST(MAXIMUS_DEPS_CFLAGS)
 AC_SUBST(MAXIMUS_DEPS_LIBS)
 
-PKG_CHECK_MODULES(MATEWINDOWPICKER_DEPS, 
+PKG_CHECK_MODULES(MATEWINDOWPICKER_DEPS,
                   libmatepanelapplet-4.0 >= 1.17.0
                   gtk+-3.0 >= $GTK_REQUIRED
                   glib-2.0 >= $GLIB_REQUIRED
-                  gio-2.0 
+                  gio-2.0
                   libwnck-3.0
                   )
 AC_SUBST(MATEWINDOWPICKER_DEPS_CFLAGS)
