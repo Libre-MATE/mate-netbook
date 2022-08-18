@@ -385,12 +385,11 @@ static void maximus_bind_class_init(MaximusBindClass *klass) {
 static void maximus_bind_init(MaximusBind *bind) {
   MaximusBindPrivate *priv;
   GdkDisplay *display = gdk_display_get_default();
-  WnckScreen *screen;
 
   priv = bind->priv = maximus_bind_get_instance_private(bind);
 
   priv->fk = fakekey_init(GDK_DISPLAY_XDISPLAY(display));
-  priv->screen = screen = wnck_screen_get_default();
+  priv->screen = wnck_screen_get_default();
   priv->rules = NULL;
   priv->settings = g_settings_new(BIND_SCHEMA);
 
