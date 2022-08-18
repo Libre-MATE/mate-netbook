@@ -40,7 +40,7 @@
 #include "tomboykeybinder.h"
 
 #define KEY_RELEASE_TIMEOUT 300
-#define STATE_CHANGED_SLEEP 0.5
+#define STATE_CHANGED_SLEEP 1
 
 /* GSettings schemas and keys */
 #define BIND_SCHEMA "org.mate.maximus"
