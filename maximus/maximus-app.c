@@ -109,13 +109,12 @@ static gboolean wnck_window_is_decorated(WnckWindow *window) {
                      AnyPropertyType, &type, &format, &nitems, &bytes_after,
                      &data);
 
-  if (type == None || !data) return TRUE;
+  if (type == None) return TRUE;
 
+  if (!data) return TRUE;
   hints = (MotifWmHints *)data;
-
   retval = hints->decorations;
-
-  if (data) XFree(data);
+  XFree(data);
 
   return retval;
 }
