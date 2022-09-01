@@ -22,6 +22,7 @@
 #include <config.h>
 #endif
 
+#include <glib-object.h>
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
@@ -135,9 +136,11 @@ static gboolean cw_applet_fill(MatePanelApplet *applet, const gchar *iid,
 
   if (strcmp(iid, "MateWindowPicker") != 0) return FALSE;
 
+#ifdef ENABLE_NLS
   bindtextdomain(GETTEXT_PACKAGE, MATELOCALEDIR);
   bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
   textdomain(GETTEXT_PACKAGE);
+#endif /* ENABLE_NLS */
 
   /* Have our background automatically painted. */
   mate_panel_applet_set_background_widget(MATE_PANEL_APPLET(applet),
